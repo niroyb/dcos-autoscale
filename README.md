@@ -54,7 +54,7 @@ Pester is a BDD based test runner, a framework for running Unit Tests to execute
 
 # Create environment variable file
 
-  Add the service principal credential into this file in the following format.
+  Add the service principal credential in a file nammed "`.env`" in the following format.
   The unittest case uses this credential to access the Azure subscription for the scaleup and down operations
 
   Eg.
