@@ -5,22 +5,22 @@
     git clone git@github.com:niroyb/DCOS.git
 
 # [Install Pester](https://github.com/pester/Pester/wiki/Installation-and-Update) 
-    Pester is a BDD based test runner, a framework for running Unit Tests to execute and validate PowerShell commands
+Pester is a BDD based test runner, a framework for running Unit Tests to execute and validate PowerShell commands
 
     Install-Module -Name Pester -Force -SkipPublisherCheck
 
 # [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)
   
-    PS D:\github\nick> Get-Module PowerShellGet -list | Select-Object Name,Version,Path
+    $ Get-Module PowerShellGet -list | Select-Object Name,Version,Path
     Name          Version Path
     ----          ------- ----
     PowerShellGet 1.0.0.1 C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PowerShellGet.psd1
 
-    PS D:\github\nick> Install-Module AzureRM -AllowClobber
+    $ Install-Module AzureRM -AllowClobber
 
 # [Create a service principal](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html)
 
-    D:\github\nick\ScaleUp> az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTIONID"
+    $ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTIONID"
      
         Retrying role assignment creation: 1/36
         {
@@ -34,7 +34,7 @@
 
   Note: you  might get the following error this if you are not a owner of your subscription 
   
-        PS D:\github\nick\ScaleUp> az ad sp create-for-rbac --role="Contributor" 
+        $ az ad sp create-for-rbac --role="Contributor" 
                                     --scopes="/subscriptions/xxxxx"
         Role assignment creation failed.
 
@@ -66,4 +66,4 @@
 
 # Run test script
 
-    PS DCOS\ScaleUp> invoke-pester -script  .\ScaleUp.Tests.ps1
+   `$ invoke-pester`
