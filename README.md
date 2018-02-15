@@ -66,4 +66,8 @@ Pester is a BDD based test runner, a framework for running Unit Tests to execute
 
 # Run test script
 
-   `$ invoke-pester`
+## Run all tests
+`$ invoke-pester`
+
+## Run a subset of tests:
+`$ Invoke-Pester -TestName 'Sanity check'`

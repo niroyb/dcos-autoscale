@@ -126,7 +126,7 @@ Describe "Getting initial state" {
         $masterFQDN | Should not be $null
         # $masterFQDN | Should BeLike "*azure.com"
         
-        $res = Invoke-WebRequest "http://$masterFQDN/dcos-history-service/history/last" | ConvertFrom-Json | Select slaves
+        $res = Invoke-WebRequest "http://$masterFQDN/dcos-history-service/history/last" | ConvertFrom-Json | Select-Object slaves
         $res | Should not be $null
         $res.slaves | Should not be $null
         $res.slaves.Count | Should BeGreaterThan 0
@@ -213,13 +213,13 @@ Describe "DCOS cli cluster" {
 
 Describe "DCOS service" {
     It "Has service definition file" {
-        $path = "$here/../ServiceTemplates/python-server.json"
+        $path = "$here/python-server.json"
         Test-Path $path -PathType Leaf | Should be $True
     }
 
 
     It "Can schedule a service" {
-        $path = "$here/../ServiceTemplates/python-server.json"
+        $path = "$here/python-server.json"
         dcos marathon app add "$path"
         $? | Should be $true
     }
