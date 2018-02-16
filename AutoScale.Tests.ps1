@@ -4,11 +4,11 @@ Import-Module AzureRM
 
 function Login-AzureRmFromEnv {
     if ($Env:CLIENT_ID -eq $null) {
-        if (Test-Path .\env.ps1) {
-            . .\env.ps1
+        if (Test-Path "$here\env.ps1") {
+            . "$here\env.ps1"
         }
         else {
-            Write-Error "Could not find env.ps1 file to source credentials, please create it"
+            Write-Error "Could not find $here\env.ps1 file to source credentials, please create it"
             exit 1
         }
     }
